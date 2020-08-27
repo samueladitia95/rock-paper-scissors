@@ -8,6 +8,7 @@ const lostMoveSpan = document.getElementById("lost-move");
 const resultSpan = document.getElementById("result");
 const resultH1 = document.getElementById("result-text");
 const resultDescription = document.getElementById("result-description");
+// const moveRing = document.getElementsByClassName("player-choice");
 
 console.log(humanScore);
 console.log(compScore);
@@ -28,25 +29,49 @@ function game(userInput) {
 	) {
 		lose(userInput, compInput);
 	} else {
-		draw();
+		draw(userInput);
 	}
 }
 
 function win(userMove, compMove) {
 	showResult(userMove, compMove, " You Win!");
 	humanScore.textContent = (Number(humanScore.textContent) + 1).toString();
+	animationSelector(userMove, "green-border");
 }
 
 function lose(userMove, compMove) {
 	showResult(compMove, userMove, " You Lost!");
 	compScore.textContent = (Number(compScore.textContent) + 1).toString();
+	animationSelector(userMove, "red-border");
 }
 
-function draw() {
+function draw(userMove) {
 	winMoveSpan.textContent = "";
 	lostMoveSpan.textContent = "";
 	resultSpan.textContent = "";
 	resultDescription.textContent = " It's a Draw! ";
+	animationSelector(userMove, "grey-border");
+}
+
+function animationSelector(userMove, classChoice) {
+	switch (userMove) {
+		case 0:
+			animationChange("rock", classChoice);
+			break;
+		case 1:
+			animationChange("paper", classChoice);
+			break;
+		case 2:
+			animationChange("scissors", classChoice);
+			break;
+	}
+}
+
+function animationChange(x, y) {
+	document.getElementById(x).classList.add(y);
+	setTimeout(function () {
+		document.getElementById(x).classList.remove(y);
+	}, 300);
 }
 
 function showResult(winMove, lostMove, winner) {
