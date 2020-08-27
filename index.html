@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rock Paper Scissor</title>
+		<link rel="stylesheet" href="./style.css" type="text/css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<header>
+			<h1>Rock Paper Scissor</h1>
+		</header>
+
+		<main>
+			<div id="score-box">
+				<div class="player" id="human-player">User</div>
+				<div id="score-count">
+					<span id="score-human">0</span>
+					<span>:</span>
+					<span id="score-computer">0</span>
+				</div>
+				<div class="player" id="computer-player">Comp</div>
+			</div>
+
+			<div id="result-box">
+				<h1><span>Paper</span> covers <span>Rock.</span> You <span>win!</span></h1>
+			</div>
+
+			<div id="player-choice-box">
+                <div id="rock" class="player-choice">
+					<img src="./img/rock.png" alt="rock" />
+				</div>
+				<div id="paper" class="player-choice">
+					<img src="./img/paper.png" alt="paper" />
+				</div>
+				<div id="scissor" class="player-choice">
+					<img src="./img/scissor.png" alt="scissor" />
+				</div>
+			</div>
+
+			<div id="next-move">
+				<p>Next move</p>
+			</div>
+		</main>
+		<script src="./index.js"></script>
+	</body>
+</html>
